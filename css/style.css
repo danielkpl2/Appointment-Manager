@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+.navbar-default {
+	//background-color:#4F81BD;
+	background-color:#4FBD73;
+}
+
+.navbar-header .navbar-brand, .navbar-header .navbar-brand:hover{
+	color:white;
+}
+
+
+.navbar-default .navbar-text{
+	color:white;
+}
+
+
+.sidebar-nav{
+	position: absolute;
+	top: 0px;
+	width: 250px;
+	margin: 0px;
+	padding: 0px;
+	list-style: outside none none;
+}
+
+.sidebar-nav li{
+	line-height: 40px;
+}
+
+.sidebar-nav li a{
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+.sidebar-nav li a:hover{
+	text-decoration: none;
+	color: white;
+	background: #4FBD73;
+}
+
+.sidebar-nav .selected {
+	color: white;
+	background: #4FBD73;
+}
+
+.table .table-title{
+	text-align: center;
+	border-top: 0px;
+}
+.table{
+	text-align: center;
+	margin-bottom: 0px;
+}
+.table .data:hover{
+	background: yellow;
+	cursor:pointer;
+	cursor:hand;
+}
+.table .data{
+	background: none;
+}
+
+.table .data.clicked{
+	background: lightgreen;
+	color: white;
+}
+.table .data.available.clicked{
+	background: lightgreen;
+	color: white;
+}
+
+.table .data.available{
+	background: #568F56;
+	color: white;
+}
+.table .timeslots.clicked{
+	background: lightgreen;
+	color: white;
+}
+
+#today{
+	background: lightblue !important;
+}
+
+.timeslots:hover{
+	background: yellow;
+	cursor:pointer;
+	cursor:hand;
+}
+
+.form-horizontal{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+}
+
+.form-horizontal .radio{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.hide{
+	display: none;
+}
+.show{
+	display: block;
+}
+
+th{
+	text-align: center;
+}
+
+body{
+	//background-color: black;
+	padding-top: 50px;
+}
