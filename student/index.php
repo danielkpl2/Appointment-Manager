@@ -61,7 +61,6 @@
 					</ul>
 
 				</div>
-				<!--<div class="col-md-9">-->
 					
 					<div class="col-md-6">
 					<h4>Available appointment times for Helen Purchase</h4>
@@ -72,10 +71,7 @@
 							
 							<form class="form-horizontal">
 							<!--<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>-->
-								
-								
-								
-								
+
 								<div class="form-group radio">
 									<label class="radio-inline"><input type="radio" name="has_account" id="no" value="0" checked>New user</label>
 									<label class="radio-inline"><input type="radio" name="has_account" id="yes" value="1">Existing user</label>
@@ -164,7 +160,6 @@
 					<div class="col-md-3">
 						<?php
 						require "../calendar.php";
-						//echo "$monthname $year";
 						?>
 
 					</div>
@@ -226,28 +221,6 @@
 										}
 									});
 								});
-								/*
-								$("#today").on('onLoad',function(){
-										//$(".clicked").toggleClass("clicked");		//restore default background
-										$(this).toggleClass("clicked");		//paint selected day's background
-										//console.log($(this).text());
-										$("div#form").hide();
-										$.ajax({
-											type: "POST",
-											url: "../timeslots.php",
-											dataType: "html",
-											data: {
-												day: $(this).text(),
-												date: $("#date_wrapper").find("#date").text()
-											},
-											success: function(result){
-												$("#timeslots").html(result);
-											}
-										});
-									});
-									
-									$("#today").trigger("onLoad");
-									*/
 
 								//moves buttons back into the table header
 								$("#prev").detach().appendTo("#prevbtn");
@@ -295,29 +268,6 @@
 									//ajax call with the selected day
 								});
 								
-								/*
-								$("#today").on('onLoad',function(){
-									//$(".clicked").toggleClass("clicked");		//restore default background
-									$(this).toggleClass("clicked");		//paint selected day's background
-									//console.log($(this).text());
-									$("div#form").hide();
-									$.ajax({
-										type: "POST",
-										url: "../timeslots.php",
-										dataType: "html",
-										data: {
-											day: $(this).text(),
-											date: $("#date_wrapper").find("#date").text()
-										},
-										success: function(result){
-											$("#timeslots").html(result);
-										}
-									});
-								});
-								
-								$("#today").trigger("onLoad");
-								/*/
-								
 								//moves buttons back into the table header
 								$("#prev").detach().appendTo("#prevbtn");
 								$("#next").detach().appendTo("#nextbtn");
@@ -360,9 +310,7 @@
 			
 			
 			$("#today").on('onLoad',function(){
-				//$(".clicked").toggleClass("clicked");		//restore default background
 				$(this).toggleClass("clicked");		//paint selected day's background
-				//console.log($(this).text());
 				$("div#form").hide();
 				$.ajax({
 					type: "POST",
@@ -380,9 +328,6 @@
 			
 			$("#today").trigger("onLoad"); //when the page ends loading today's day is selected automatically
 			
-			//console.log("triggered");
-			
-			
 			$( "form" ).on( "submit", function( event ) {
 				event.preventDefault();
 				console.log( $( this ).serialize() );
@@ -394,11 +339,6 @@
 					url: "processform.php",
 					dataType: "html",
 					data: d + "&id=" + $("#timeslots").find(".clicked").find(".id").text(),
-
-						//date: $("#timeslots").find(".clicked").find(".date").text(),
-						//starttime: $("#timeslots").find(".clicked").find(".starttime").text(),
-
-					
 					success: function(result){
 						$("div#form").html(result);
 						

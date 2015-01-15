@@ -9,7 +9,7 @@
 
 		<title>Appointment Manager</title>
 
-		<link href="../css/bootstrap.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet" type="text/css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -214,28 +214,6 @@
 										}
 									});
 								});
-								/*
-								$("#today").on('onLoad',function(){
-										//$(".clicked").toggleClass("clicked");		//restore default background
-										$(this).toggleClass("clicked");		//paint selected day's background
-										//console.log($(this).text());
-										$("div#form").hide();
-										$.ajax({
-											type: "POST",
-											url: "../timeslots.php",
-											dataType: "html",
-											data: {
-												day: $(this).text(),
-												date: $("#date_wrapper").find("#date").text()
-											},
-											success: function(result){
-												$("#timeslots").html(result);
-											}
-										});
-									});
-									
-									$("#today").trigger("onLoad");
-									*/
 
 								//moves buttons back into the table header
 								$("#prev").detach().appendTo("#prevbtn");
@@ -283,28 +261,6 @@
 									//ajax call with the selected day
 								});
 								
-								/*
-								$("#today").on('onLoad',function(){
-									//$(".clicked").toggleClass("clicked");		//restore default background
-									$(this).toggleClass("clicked");		//paint selected day's background
-									//console.log($(this).text());
-									$("div#form").hide();
-									$.ajax({
-										type: "POST",
-										url: "../timeslots.php",
-										dataType: "html",
-										data: {
-											day: $(this).text(),
-											date: $("#date_wrapper").find("#date").text()
-										},
-										success: function(result){
-											$("#timeslots").html(result);
-										}
-									});
-								});
-								
-								$("#today").trigger("onLoad");
-								/*/
 								
 								//moves buttons back into the table header
 								$("#prev").detach().appendTo("#prevbtn");

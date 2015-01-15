@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2015 at 04:15 PM
+-- Generation Time: Jan 15, 2015 at 07:59 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -40,26 +40,26 @@ INSERT INTO `staff` (`staffid`, `forename`, `surname`) VALUES
 --
 
 INSERT INTO `student` (`id`, `guid`, `forename`, `surname`, `email`, `password`) VALUES
-(3, '1106611k', 'Daniel', 'Kasprowicz', 'danielkpl2@gmail.com', 'qwerty'),
-(4, 'gsdgsa', 'Daniel', '', 'qwerty', 'fsadg'),
-(5, 'jordy', 'Jordan', 'Schlansky', 'jordan.schlansky@gmail.com', 'wqetgehsd'),
-(13, NULL, 'rege', 'gdfsg', 'greyseghw', 'gdsw'),
-(29, NULL, 'gdhd', 'ggsd', 'shdsyer', 'dfshd'),
-(30, 'gdfgd', 'fgsadg', 'sdgsg', 'gdfshfd', 'gsdgs');
+(1, '1234567a', 'John', 'Smith', 'john.smith@gmail.com', 'qwerty'),
+(2, '2345678b', 'Luke', 'Skywalker', 'luke.skywalker@hotmail.com', 'mydadylovesme'),
+(3, '3456789a', 'Jordan', 'Schlansky', 'jordan.schlansky@yahoo.com', 'italy'),
+(4, '4567890s', 'Jim', 'Carrey', 'jimcarrey@yahoo.com', 'funnyjokes'),
+(5, '6853794g', 'Han', 'Solo', 'han.solo@gmail.com', 'leia'),
+(6, '9673284s', 'Jack', 'Sparrow', 'jack.sparrow@aol.com', 'rum');
 
 --
 -- Dumping data for table `timeslot`
 --
 
 INSERT INTO `timeslot` (`id`, `starttime`, `endtime`, `date`, `staffid`, `studentid`, `purpose`, `comment`) VALUES
-(4, '13:30:00', '14:00:00', '2014-12-10', '1001', NULL, NULL, NULL),
-(5, '19:00:00', '19:15:00', '2015-01-09', '1001', NULL, NULL, NULL),
-(6, '19:15:00', '19:30:00', '2015-01-09', '1001', 3, 1, 'hfthfhf'),
-(7, '19:45:00', '20:00:00', '2015-01-09', '1001', 3, 1, 'fghrhr'),
-(8, '10:00:00', '10:20:00', '2015-01-10', '1001', NULL, NULL, NULL),
-(9, '10:20:00', '10:40:00', '2015-01-10', '1001', NULL, NULL, NULL),
-(10, '11:00:00', '11:30:00', '2015-01-10', '1001', NULL, NULL, NULL),
-(11, '10:00:00', '10:20:00', '2015-01-13', '1001', 5, 1, 'Discuss various things');
+(5, '09:00:00', '09:15:00', '2015-01-19', '1001', NULL, NULL, NULL),
+(12, '10:15:00', '10:45:00', '2015-01-19', '1001', NULL, NULL, NULL),
+(13, '09:30:00', '10:00:00', '2015-01-19', '1001', NULL, NULL, NULL),
+(14, '11:00:00', '11:15:00', '2015-01-19', '1001', NULL, NULL, NULL),
+(15, '11:30:00', '11:45:00', '2015-01-19', '1001', NULL, NULL, NULL),
+(16, '11:00:00', '11:15:00', '2015-01-20', '1001', NULL, NULL, NULL),
+(17, '11:30:00', '12:00:00', '2015-01-20', '1001', NULL, NULL, NULL),
+(18, '12:30:00', '13:00:00', '2015-01-20', '1001', 5, 1, 'Chewbacca ate my cookie');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

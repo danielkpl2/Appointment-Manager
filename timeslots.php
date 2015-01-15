@@ -10,7 +10,7 @@
 		$year = $d[1];
 		
 		$conn = db_connect();
-		$sql="SELECT * FROM timeslot WHERE studentid IS NULL AND date='$year-$month-$day';";
+		$sql="SELECT * FROM timeslot WHERE studentid IS NULL AND date='$year-$month-$day' ORDER BY date ASC, starttime ASC;";
 		$result = execute_query($conn, $sql);
 		
 		if ($result->num_rows > 0) {
