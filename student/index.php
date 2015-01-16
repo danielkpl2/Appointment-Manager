@@ -59,6 +59,7 @@
 							<a href="#">Contact information</a>
 						</li>
 					</ul>
+					
 
 				</div>
 					
@@ -69,7 +70,7 @@
 						</div>
 						<div id="form">
 							
-							<form class="form-horizontal">
+							<form class="form-horizontal" name="form">
 							<!--<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>-->
 
 								<div class="form-group radio">
@@ -156,6 +157,7 @@
 							</form>
 
 						</div>
+						<div class="response"></div>
 					</div>
 					<div class="col-md-3">
 						<?php
@@ -169,6 +171,8 @@
 		</div>
 		
 		<script>
+			//Firefox retains the state of forms after page refresh, including radio buttons. Without form reset, if the existing user radio button is checked and the page is refreshed, the form after refresh will show the fields for new user (with "existing user" still checked). Form refresh fixes this.
+			document.form.reset();
 			//move the buttons into the table header, looks neater
 			$("#prev").detach().appendTo("#prevbtn");
 			$("#next").detach().appendTo("#nextbtn");
@@ -340,8 +344,7 @@
 					dataType: "html",
 					data: d + "&id=" + $("#timeslots").find(".clicked").find(".id").text(),
 					success: function(result){
-						$("div#form").html(result);
-						
+						$("div.response").html(result);
 					}
 				});
 				

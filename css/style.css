@@ -16,9 +16,9 @@
 
 
 .sidebar-nav{
-	position: absolute;
+	position: relative;
 	top: 0px;
-	width: 250px;
+	width: 240px;
 	margin: 0px;
 	padding: 0px;
 	list-style: outside none none;
