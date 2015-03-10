@@ -25,7 +25,6 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `room` (`building`, `room`, `staffid`) VALUES
-('Alwyn Williams Building', 'S205', NULL),
 ('Alwyn Williams Building', 'S104', '1001');
 
 --

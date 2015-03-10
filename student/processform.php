@@ -20,7 +20,7 @@
 
 			$stmt->bind_param("sssss", $guid, $fname, $sname, $email, $password); //the first argument is the data type for the 5 arguments, s is for string
 			$stmt->execute();
-			echo "<p>User account succesfully created.</p>";
+			echo "<p>User account successfully created.</p>";
 			
 			//get the autoincrement id after last insertion into student table
 			$studentid = $conn->insert_id;

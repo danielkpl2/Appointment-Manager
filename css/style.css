@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 .navbar-default {
-	//background-color:#4F81BD;
 	background-color:#4FBD73;
 }
 
@@ -12,6 +11,10 @@
 
 .navbar-default .navbar-text{
 	color:white;
+}
+.signout, .signout:hover{
+	color:white !important;
+	font-weight: bold;
 }
 
 
@@ -52,33 +55,103 @@
 .table{
 	text-align: center;
 	margin-bottom: 0px;
+	table-layout: fixed;
+
 }
-.table .data:hover{
+
+
+.insert td{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.table >tbody>tr>td>input{
+	display: block !important;
+	padding: 0 !important;
+	margin: 0 !important;
+
+	width: 100% !important;
+	border-radius: 0 !important;
+	line-height: 1 !important;
+
+}
+
+
+#table_header {
+	position:relative;
+	z-index: 2;
+}
+#table_content{
+	overflow: hidden;
+	height: 222px;
+
+}
+
+#table_wrapper{
+	position:relative;
+	width: 297px;
+
+	overflow:hidden;
+}
+
+.calendar{
+	position:relative;
+	z-index: 1;
+
+}
+
+
+.table .data:hover, .table .prev_data:hover, .table .next_data:hover, .table .weekNum:hover{
 	background: yellow;
 	cursor:pointer;
 	cursor:hand;
 }
+
+
+th:hover ~ td { /*Selects the whole week on week number hover*/
+	background: yellow;
+}
+
+
 .table .data{
-	background: none;
+	/*background: none;*/
 }
 
-.table .data.clicked{
-	background: lightgreen;
+.table .prev_data, .table .next_data{
+	color: #999999;
+}
+
+.table .data.clicked, .table .prev_data.clicked, .table .next_data.clicked, .table .weekNum.clicked{
+	/*background: lightgreen;*/
+	background: #4FBD73;
 	color: white;
 }
-.table .data.available.clicked{
-	background: lightgreen;
+.table .data.available.clicked, .table .prev_data.available.clicked, .table .next_data.available.clicked{
+	/*background: lightgreen;*/
+	background: #4FBD73;
 	color: white;
 }
 
-.table .data.available{
+.table .data.available, .table .prev_data.available, .table .next_data.available{
 	background: #568F56;
 	color: white;
 }
+
+.table .prev_data.available{
+
+}
+
 .table .timeslots.clicked{
-	background: lightgreen;
+	/*background: lightgreen;*/
+	background: #4FBD73;
 	color: white;
 }
+
+/*.table .weekNum:hover{
+	background: yellow;
+	cursor:pointer;
+	cursor:hand;
+}*/
 
 #today{
 	background: lightblue !important;
@@ -114,6 +187,7 @@ th{
 }
 
 body{
-	//background-color: black;
+	/*background-color: black;*/
 	padding-top: 50px;
+
 }
