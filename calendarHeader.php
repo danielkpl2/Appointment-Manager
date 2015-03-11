@@ -14,10 +14,14 @@ if(isset($_POST["date"]) && isset($_POST["button"])){
         $date = strtotime($tempdate . " +1 Months");
 
     }
-
+    $monthTitle = date('F', $date);
+    $month = date('m', $date);
+    $year = date('Y', $date);
 
 }
 
-echo date("F", $date) . " " . date("Y", $date);
+//echo date("F", $date) . " " . date("Y", $date);
+
+echo "<span id ='date' value='$year-$month'>$monthTitle $year</span>";
 
 ?>

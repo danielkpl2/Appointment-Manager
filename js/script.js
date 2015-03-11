@@ -33,8 +33,8 @@ $(function() {	//button event handlers
                 button: "prev"
             },
             success: function(result){
-                $("#date_wrapper").find("#date").text(result);
-                //$("#table_content").find(".clicked").toggleClass("clicked").trigger("click");
+                //$("#date_wrapper").find("#date").text(result);
+                $("#date_wrapper").html(result);
 
             }
 
@@ -81,9 +81,8 @@ $(function() {	//button event handlers
                 button: "next"
             },
             success: function(result){
-                $("#date_wrapper").find("#date").text(result);
-                //$("#table_content").find(".clicked").toggleClass("clicked").trigger("click");
-               // $(".clicked").trigger("click");
+                //$("#date_wrapper").find("#date").text(result);
+                $("#date_wrapper").html(result);
 
 
             }
@@ -166,7 +165,8 @@ $(".calendar").on('click', '.prev_data', function(){
             button: "prev"
         },
         success: function(result){
-            $("#date_wrapper").find("#date").text(result);
+            //$("#date_wrapper").find("#date").text(result);
+            $("#date_wrapper").html(result);
             $("#table_content").find(".clicked").toggleClass("clicked").trigger("click"); //must be called AFTER new date is returned, hence the repetition
 
         }
@@ -218,7 +218,8 @@ $(".calendar").on('click', '.next_data', function(){
             button: "next"
         },
         success: function(result){
-            $("#date_wrapper").find("#date").text(result);
+            //$("#date_wrapper").find("#date").text(result);
+            $("#date_wrapper").html(result);
             $("#table_content").find(".clicked").toggleClass("clicked").trigger("click");
             // $(".clicked").trigger("click");
 
@@ -237,12 +238,6 @@ $(".calendar").on('click', '.next_data', function(){
         },
 
         success : function(result) {//update table
-            //move the buttons outside the table before it's contents get replaced
-            //$("#next").detach().prependTo("#table_wrapper");
-            //$("#prev").detach().prependTo("#table_wrapper");
-
-
-            //var r = result.split("|"); //separate html and JQuery
 
             var $r = result.split("|"); //separate html and JQuery
             $("#table_content tr:last").after($r[0]);
@@ -320,8 +315,16 @@ $( "form[name='form-student']" ).on( "submit", function( event ) {
 
 $("form[name='form-staff']").on("submit", function(event){
     event.preventDefault();
-    console.log( $( this ).serialize() );
+    //console.log( $( this ).serialize() );
     var d = $(this).serialize();
+    var date = $(".insert input[name='date']").val(); //select date from the input field
+    var day = date.substr(date.lastIndexOf('-')+1); //select day from the date
+
+    var cell = $("#table_content .data").filter(function(){return $(this).text() === day});
+    cell.addClass("available");
+
+
+    //console.log();
 
     $.ajax({
         type: "post",
@@ -330,8 +333,7 @@ $("form[name='form-staff']").on("submit", function(event){
         data: d,
         success: function(result){
             $("div.response").html(result);
-            //update calendar - add available class to cell
-            //trigger .data click
+            cell.trigger("click");
 
         }
 
