@@ -27,7 +27,8 @@ if(!login_check($mysqli)){
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet" type="text/css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="../js/jquery.min.js"></script>
 
 
 
@@ -75,7 +76,7 @@ if(!login_check($mysqli)){
                     <a href="#">My appointments</a>
                 </li>
                 <li>
-                    <a href="#">Contact information</a>
+                    <a href="contact.php">Contact information</a>
                 </li>
             </ul>
 
@@ -85,18 +86,22 @@ if(!login_check($mysqli)){
         <div class="col-md-6">
             <h4>Available appointment times for Helen Purchase</h4>
             <div id="timeslots">
-                <table class='table'><tr><th>Date</th><th>Start</th><th>End</th><th>Duration</th><th>Purpose</th><th>Student</th><th>Note</th></tr></table>
+
+                <table class='table'><tr><th style="width: 30px"></th><th>Date</th><th>Start</th><th>End</th><th>Duration</th><th>Purpose</th><th>Student</th><th>Note</th></tr></table>
                 <table class="table slots"></table>
                 <form name="form-staff">
-                <table class="table insert"><tr><td><input type="text" class="form-control" name="date"/></td>
+                <table class="table insert"><tr><td style="width: 30px"><button  name="submit" class='btn btn-xs' type="submit"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></button></td>
+                        <td><input type="text" class="form-control" name="date"/></td>
                     <td><input type="text" class="form-control" name="start"/></td><td ><input type="text" class="form-control" name="end"/></td>
                         <td></td>
                         <td></td>
                         <td></td><td></td>
                     </tr>
                 </table>
-                <button id="submit" name="submit" class="btn btn-default" type="submit">Submit</button>
+
                 </form>
+                <!--class="btn btn-default "-->
+
 
 
                 <!--
@@ -104,6 +109,8 @@ if(!login_check($mysqli)){
                 <table class='table'><tr><th>Date</th><th>Start</th><th>End</th><th>Duration</th><th>Student</th><th>Purpose</th><th>Note</th></tr>
                 <table class="table form"></table>
                 -->
+
+
             </div>
             <!--
             <div id="form-staff">

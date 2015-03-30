@@ -36,7 +36,15 @@ else{
 
 	$conn = db_connect();
 
-	$sql = "SELECT * FROM timeslot LEFT JOIN student ON timeslot.studentid = student.id WHERE (date BETWEEN '$first_day' AND '$last_day') AND date >='$ymd' AND NOT (date = '$ymd' AND starttime < '$time') ORDER BY date ASC, starttime ASC";
+	$purpose = array(
+		"1" => "General",
+		"2" => "Advisor",
+		"3" => "Studies"
+	);
+
+
+	$sql = "SELECT timeslot.id, date, starttime, endtime, forename, surname, comment, for_name FROM purpose, timeslot LEFT JOIN student ON timeslot.studentid = student.id" .
+ " WHERE ((timeslot.purpose is NULL AND (timeslot.purpose is null AND purpose.for_id is null)) OR timeslot.purpose = purpose.for_id) AND (date BETWEEN '$first_day' AND '$last_day') AND date >='$ymd' AND NOT (date = '$ymd' AND starttime < '$time') ORDER BY date ASC, starttime ASC";
 	//echo $sql;
 
 	$result = execute_query($conn, $sql);
@@ -45,8 +53,9 @@ else{
 		//echo "<table class='table'><tr><th>Date</th><th>Start</th><th>End</th><th>Duration</th><th>Student</th><th>Purpose</th><th>Note</th></tr>";
 		while($row = $result->fetch_assoc()) {
 			$duration = date("i",strtotime($row["endtime"]) - strtotime($row["starttime"]));
-			echo "<tr class='timeslots'><td class='id hide'>$row[id]</td><td class='date'>$row[date]</td><td class='starttime'>$row[starttime]</td><td class='endtime'>$row[endtime]</td><td>$duration min</td>";
-			echo "<td>$row[purpose]</td><td>$row[forename] $row[surname]</td><td>$row[comment]</td></tr>";
+			$id = $row['id'];
+			echo "<tr class='timeslots'><td class='id hide'>$row[id]</td><td style='width: 30px'><a href='#' onclick=\"del($id);\" class='btn btn-xs delete' role='button'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td><td class='date'>$row[date]</td><td class='starttime'>$row[starttime]</td><td class='endtime'>$row[endtime]</td><td>$duration min</td>";
+			echo "<td>$row[for_name]</td><td>$row[forename] $row[surname]</td><td>$row[comment]</td></tr>";
 		}
 		//echo "</table>";
 	}

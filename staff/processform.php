@@ -13,7 +13,7 @@ if(isset($_POST["date"], $_POST["start"], $_POST["end"])){
 	$stmt->bind_param("sssisss", $start, $end, $date, $staffid, $null, $null, $null);
 	$stmt->execute();
 
-	echo "<p>Successfully added timeslot $date $start $end</p>";
+	//echo "<p>Successfully added timeslot $date $start $end</p>";
 }
 
 /*

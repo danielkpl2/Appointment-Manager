@@ -20,7 +20,8 @@ sec_session_start();
 
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet" type="text/css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+		<script src="../js/jquery.min.js"></script>
 
 		
 
@@ -69,7 +70,7 @@ sec_session_start();
 							<a href="myappointments.php">My appointments</a>
 						</li>
 						<li>
-							<a href="#">Contact information</a>
+							<a href="contact.php">Contact information</a>
 						</li>
 					</ul>
 					

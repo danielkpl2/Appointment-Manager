@@ -340,3 +340,30 @@ $("form[name='form-staff']").on("submit", function(event){
     });
 
 });
+/*
+$("#timeslots").on("click", ".delete", function(evt){
+    //console.log("delete clicked");
+    console.log($(this).parent().siblings().find(".id").text());
+
+});
+*/
+
+
+function del(id){
+    $.ajax({
+        type: "post",
+    url: "delete.php",
+    dataType: "html",
+    data:{
+        id : id
+    },
+
+    success: function(result){
+        $("#table_content").find(".clicked").first().trigger("click");
+
+
+    }
+
+});
+
+}

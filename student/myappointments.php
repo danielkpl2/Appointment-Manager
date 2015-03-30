@@ -11,8 +11,8 @@
 
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet" type="text/css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+		<script src="../js/jquery.min.js"></script>
 		
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -36,9 +36,7 @@
 
 				</div>
 
-				<p class="navbar-text navbar-right">
-					Sign in
-				</p>
+
 
 			</div>
 		</nav>
@@ -53,10 +51,10 @@
 							<a href="../student/">Available appointments</a>
 						</li>
 						<li>
-							<a href="" class="selected">My appointments</a>
+							<a href="#" class="selected">My appointments</a>
 						</li>
 						<li>
-							<a href="#">Contact information</a>
+							<a href="contact.php">Contact information</a>
 						</li>
 					</ul>
 
@@ -68,14 +66,15 @@
 						<div id="timeslots">
 							List of timeslots goes here
 						</div>
+						<!--
 						<div id="form">
 							<div class="radio">
 								<label class="radio-inline"><input type="radio" name="has_account" id="no" value="0" checked>New user</label>
 								<label class="radio-inline"><input type="radio" name="has_account" id="yes" value="1">Existing user</label>
 							</div>
 							<form class="form-horizontal" method="post" action="form.php">
-							<!--<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>-->
-								<!-- Text input-->
+
+
 								<div class="form-group show">
 								  <label class="col-md-4 control-label" for="name">Name</label>  
 								  <div class="col-md-6">
@@ -84,7 +83,7 @@
 								  </div>
 								</div>
 
-								<!-- Text input-->
+
 								<div class="form-group show">
 								  <label class="col-md-4 control-label" for="email">Email address</label>  
 								  <div class="col-md-6">
@@ -93,7 +92,7 @@
 								  </div>
 								</div>
 
-								<!-- Text input-->
+
 								<div class="form-group show">
 								  <label class="col-md-4 control-label" for="GUID">GUID</label>  
 								  <div class="col-md-6">
@@ -111,7 +110,7 @@
 								</div>
 								
 								
-								<!-- Password input-->
+
 								<div class="form-group">
 								  <label class="col-md-4 control-label" for="password">Password</label>
 								  <div class="col-md-6">
@@ -132,7 +131,7 @@
 								</div>
 
 								
-								<!-- Textarea -->
+
 								<div class="form-group">
 								  <label class="col-md-4 control-label" for="note">Note</label>
 								  <div class="col-md-6">                     
@@ -140,7 +139,7 @@
 								  </div>
 								</div>
 
-								<!-- Button -->
+
 								<div class="form-group">
 								  <label class="col-md-4 control-label" for="submit"></label>
 								  <div class="col-md-6">
@@ -148,7 +147,7 @@
 								  </div>
 								</div>
 
-							</form>
+							</form> -->
 
 						</div>
 					</div>

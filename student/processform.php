@@ -20,7 +20,8 @@
 
 			$stmt->bind_param("sssss", $guid, $fname, $sname, $email, $password); //the first argument is the data type for the 5 arguments, s is for string
 			$stmt->execute();
-			echo "<p>User account successfully created.</p>";
+			//echo "<p>User account successfully created.</p>";
+
 			
 			//get the autoincrement id after last insertion into student table
 			$studentid = $conn->insert_id;
@@ -39,7 +40,8 @@
 			$result = execute_query($conn, $sql);
 			if($result->num_rows==0){ // no such user
 				
-				echo "<p>User not found.</p>";
+				//echo "<p>User not found.</p>";
+				echo "<script>alert(\"User not found.\");</script>";
 				exit; //stop executing the script here
 				
 			} else { //$guidemail is email
@@ -48,7 +50,8 @@
 				$sql = "SELECT id FROM student WHERE password = '$password' AND email = '$guidemail'";
 				$result = execute_query($conn, $sql);
 				if($result->num_rows==0){
-					echo "<p>Wrong password.</p>";
+					//echo "<p>Wrong password.</p>";
+					echo "<script>alert(\"Wrong password\");</script>";
 					exit;
 				}
 			}
@@ -59,7 +62,8 @@
 			$sql = "SELECT id FROM student WHERE password = '$password' AND guid = '$guidemail'";
 			$result = execute_query($conn, $sql);
 			if($result->num_rows==0){
-				echo "<p>Wrong password.</p>";
+				//echo "<p>Wrong password.</p>";
+				echo "<script>alert(\"Wrong password\");</script>";
 				exit;
 			}
 		}
@@ -72,6 +76,7 @@
 
 	$sql = "UPDATE timeslot SET studentid = '$studentid', purpose = '$purpose', comment = '$note' WHERE timeslot.id = '$id'";
 	execute_query($conn, $sql);
-	echo "<p>User succesfully booked for the selected timeslot.</p>";
+	//echo "<p>User succesfully booked for the selected timeslot.</p>";
+	echo "<script>alert(\"Successfully booked for the selected timeslot\");</script>";
 	
 ?>
