@@ -17,6 +17,12 @@
 	font-weight: bold;
 }
 
+@media (min-width: 1400px){
+	.container {
+		width: 1400px;
+	}
+}
+
 
 .sidebar-nav{
 	position: relative;
@@ -102,32 +108,28 @@
 
 
 .table .data:hover, .table .prev_data:hover, .table .next_data:hover, .table .weekNum:hover{
-	background: yellow;
+	background: none repeat scroll 0% 0% rgba(79, 189, 115, 0.71);
+	color: white;
 	cursor:pointer;
 	cursor:hand;
 }
 
 
 th:hover ~ td { /*Selects the whole week on week number hover*/
-	background: yellow;
+	background: none repeat scroll 0% 0% rgba(79, 189, 115, 0.71);
+	color: white !important;
 }
 
-
-.table .data{
-	/*background: none;*/
-}
 
 .table .prev_data, .table .next_data{
 	color: #999999;
 }
 
 .table .data.clicked, .table .prev_data.clicked, .table .next_data.clicked, .table .weekNum.clicked{
-	/*background: lightgreen;*/
 	background: #4FBD73;
 	color: white;
 }
 .table .data.available.clicked, .table .prev_data.available.clicked, .table .next_data.available.clicked{
-	/*background: lightgreen;*/
 	background: #4FBD73;
 	color: white;
 }
@@ -142,23 +144,26 @@ th:hover ~ td { /*Selects the whole week on week number hover*/
 }
 
 .table .timeslots.clicked{
-	/*background: lightgreen;*/
 	background: #4FBD73;
 	color: white;
 }
 
-/*.table .weekNum:hover{
-	background: yellow;
-	cursor:pointer;
-	cursor:hand;
-}*/
+
+.table .note-title{
+	text-align: center;
+}
+
+.table .note-content{
+	text-align: left;
+}
 
 #today{
 	background: lightblue !important;
 }
 
 .timeslots:hover{
-	background: yellow;
+	background: none repeat scroll 0% 0% rgba(79, 189, 115, 0.71);
+	color: white;
 	cursor:pointer;
 	cursor:hand;
 }
@@ -174,10 +179,10 @@ th:hover ~ td { /*Selects the whole week on week number hover*/
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
+/*
 .hide{
 	display: none;
-}
+}*/
 .show{
 	display: block;
 }
@@ -187,7 +192,6 @@ th{
 }
 
 body{
-	/*background-color: black;*/
 	padding-top: 50px;
 
 }

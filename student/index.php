@@ -86,7 +86,7 @@ sec_session_start();
 						</div>
 						<div id="form">
 							
-							<form class="form-horizontal" name="form-student">
+							<form class="form-horizontal" name="form_student">
 
 								<div class="form-group radio">
 									<label class="radio-inline"><input type="radio" name="has_account" id="no" value="0" checked>New user</label>
@@ -184,12 +184,10 @@ sec_session_start();
 			</div>
 		</div>
 
-		<script> <!--specific only to student's page -->
-			document.form.reset();
-			$("div#form").hide();
-		</script>
 
-		<script src = "../js/script.js"></script>
+		<script src="../js/script.js"></script> <!--common to both staff and student pages-->
+		<script src="../js/student.js"></script> <!--specific only to student's page -->
+		<!--<script>document.form.reset();</script>-->
 
 	</body>
 

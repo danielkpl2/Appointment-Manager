@@ -70,7 +70,7 @@
 	}
 	
 	$purpose = $_POST["purpose"];
-	$note = $_POST["note"];
+	$note = test_input($_POST["note"]);
 	$id = $_POST["id"];
 	
 
