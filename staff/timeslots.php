@@ -37,19 +37,6 @@ else{
 
 
 	$conn = db_connect();
-/*
-	$purpose = array(
-		"1" => "General",
-		"2" => "Advisor",
-		"3" => "Studies"
-	);
-*/
-	$test_note = "As usual, arguments in square brackets are optional, whereas arguments in curly braces are compulsory.".
-		"The argument in the curly braces is the name of the image. Write it without the extension. This way the LaTeX compiler".
-		" will look for any supported image format in that directory and will take the best one (EPS if the output is DVI; JPEG, ".
-		"PNG or PDF if the output is PDF). Images can be saved in multiple formats for different purposes. For example, a directory".
-		" can have \"diagram.pdf\" for high-resolution printing, while \"diagram.png\" can be used for previewing on the monitor. You".
-		" can specify which image file is to be used by pdflatex through the preamble command:";
 
 
 	$sql = "SELECT timeslot.id, date, starttime, endtime, forename, surname, comment, for_name FROM purpose, timeslot LEFT JOIN student ON timeslot.studentid = student.id" .

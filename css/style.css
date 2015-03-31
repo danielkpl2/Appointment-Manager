@@ -191,6 +191,10 @@ th{
 	text-align: center;
 }
 
+.table > tbody > tr > td{
+	vertical-align: middle;
+}
+
 body{
 	padding-top: 50px;
 
