@@ -10,7 +10,9 @@ else{
 
 	$d = explode(" ",$date); //month + year
 
-	$month = date('m',strtotime($d[0]));
+	//appending -01 corrects php's strange handling of date conversion on the 31st of the month
+	//http://stackoverflow.com/questions/9058523/php-date-and-strtotime-return-wrong-months-on-31st
+	$month = date('m',strtotime($d[0] . '-01'));
 	$year = $d[1];
 
 	$ymd = date('Y-m-d',time());
