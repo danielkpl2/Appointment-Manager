@@ -126,25 +126,26 @@ th:hover ~ td { /*Selects the whole week on week number hover*/
 }
 
 .table .data.clicked, .table .prev_data.clicked, .table .next_data.clicked, .table .weekNum.clicked{
-	background: #4FBD73;
+	/*background: #4FBD73;*/
+	background: rgb(52, 165, 89);
 	color: white;
 }
 .table .data.available.clicked, .table .prev_data.available.clicked, .table .next_data.available.clicked{
-	background: #4FBD73;
+	/*background: #4FBD73;*/
+	background: rgb(52, 165, 89);
 	color: white;
 }
 
 .table .data.available, .table .prev_data.available, .table .next_data.available{
-	background: #568F56;
+	/*background: #568F56;*/
+	background: #4FBD73;
 	color: white;
 }
 
-.table .prev_data.available{
-
-}
 
 .table .timeslots.clicked{
-	background: #4FBD73;
+	/*background: #4FBD73;*/
+	background: rgb(52, 165, 89);
 	color: white;
 }
 
@@ -158,7 +159,8 @@ th:hover ~ td { /*Selects the whole week on week number hover*/
 }
 
 #today{
-	background: lightblue !important;
+	background: rgba(117, 151, 221, 0.64) !important;
+	color: white;
 }
 
 .timeslots:hover{
@@ -193,6 +195,10 @@ th{
 
 .table > tbody > tr > td{
 	vertical-align: middle;
+}
+
+.insert input{
+	text-align: center;
 }
 
 body{
