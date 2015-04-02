@@ -13,7 +13,6 @@
 		<link href="../css/style.css" rel="stylesheet" type="text/css">
 		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
 		<script src="../js/jquery.min.js"></script>
-		
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -32,8 +31,7 @@
 						<span class="icon-bar"></span>
 					</button>
 
-					<span class="navbar-brand">Student appointment booking page for Helen Purchase</span>
-
+					<span class="navbar-brand">Appointment booking page for Helen Purchase</span>
 				</div>
 			</div>
 		</nav>
@@ -45,25 +43,34 @@
 					<ul class="sidebar-nav">
 						
 						<li>
-							<a href="../student/">Available appointments</a>
+							<a href="../staff/">Appointments</a>
 						</li>
 						<li>
-							<a href="#" class="selected">My appointments</a>
+							<a href="myappointments.php">My appointments</a>
 						</li>
 						<li>
-							<a href="contact.php">Contact information</a>
+							<a href="#" class="selected">Contact information</a>
 						</li>
 					</ul>
 
 				</div>
+				<!--<div class="col-md-9">-->
 					
 				<div class="col-md-6">
-					<h4>My booked appointments</h4>
-					<div id="timeslots">List of timeslots goes here</div>
+					<h4>Contact Information:</h4>
+						<p>Dr. Helen C. Purchase <br>
+							Senior Lecturer<br>
+							School of Computing Science<br>
+							University of Glasgow </p>
+						<p>Room S104,17 Lilybank Gardens, G12 8QQ<br>
+							Email: helen.purchase@glasgow.ac.uk<br>
+							Telephone:  +44-141-330-4484<br>
+							Fax: +44-141-330-3103
 
+						</p>
 				</div>
-
 				<div class="col-md-3">
+						
 
 				</div>
 
@@ -73,5 +80,4 @@
 		<script src="../js/script.js"></script>
 
 	</body>
-
 </html>

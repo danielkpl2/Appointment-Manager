@@ -1,8 +1,6 @@
+//author: Daniel Kasprowicz
+//specific to both staff and student pages
 
-//Firefox retains the state of forms after page refresh, including radio buttons. Without form reset, if the existing user radio button is checked and the page is refreshed, the form after refresh will show the fields for new user (with "existing user" still checked). Form refresh fixes this.
-//
-//document.form.reset();
-//$("div#form").hide();
 
 $("input[name='has_account']").change(function(){
     //show the appropriate fields for new and existing users
@@ -19,7 +17,9 @@ $("input[name='has_account']").change(function(){
 $(function() {	//button event handlers
     $("#table_header").on('click', "#prev", function() {
 
+        //change the current month day cells to next month date cells
         $("#table_content").find('.data').addClass('next_data').removeClass('data');
+        //change the previous month date cells to current month date cells
         $("#table_content").find('.prev_data').addClass('data').removeClass('prev_data');
 
         //change calendar title
@@ -27,17 +27,13 @@ $(function() {	//button event handlers
             type : "POST",
             url : "../calendarHeader.php",
             dataType : "html",
-            //async: false,
             data : {
                 date: $("#date_wrapper").find("#date").text(),
                 button: "prev"
             },
             success: function(result){
-                //$("#date_wrapper").find("#date").text(result);
-                $("#date_wrapper").html(result);
-
+                $("#date_wrapper").html(result); //update the date header
             }
-
         });
 
         //get new calendar
@@ -45,29 +41,24 @@ $(function() {	//button event handlers
             type : "POST",
             url : "../calendar.php",
             dataType : "html",
-            //async: false,
             data : {
                 date: $("#date_wrapper").find("#date").text(),
                 button : "prev"
             },
 
             success : function(result) {//update table
-
-
                 var $r = result.split("|"); //separate html and JQuery
-                $("#table_content tr:first").before($r[0]);
-                jQuery.globalEval($r[1]);
-
+                $("#table_content tr:first").before($r[0]); //append the html result
+                jQuery.globalEval($r[1]); //execute the JQuery script
             }
-
-
         });
     });
 
     $("#table_header").on('click', "#next", function() {
-       // var r = $.Deferred();
 
+        //change the current month day cells to previous month date cells
         $("#table_content").find('.data').addClass('prev_data').removeClass('data');
+        //change the next month date cells to current month date cells
         $("#table_content").find('.next_data').addClass('data').removeClass('next_data');
 
         //change calendar title
@@ -75,16 +66,12 @@ $(function() {	//button event handlers
             type : "POST",
             url : "../calendarHeader.php",
             dataType : "html",
-            //async: false,
             data : {
                 date: $("#date_wrapper").find("#date").text(),
                 button: "next"
             },
             success: function(result){
-                //$("#date_wrapper").find("#date").text(result);
-                $("#date_wrapper").html(result);
-
-
+                $("#date_wrapper").html(result); //update the date header
             }
         });
 
@@ -92,42 +79,24 @@ $(function() {	//button event handlers
             type : "POST",
             url : '../calendar.php',
             dataType : "html",
-            //async: false,
             data : {
                 date: $("#date_wrapper").find("#date").text(),
                 button : "next"
             },
 
             success : function(result) {//update table
-                //move the buttons outside the table before it's contents get replaced
-                //$("#next").detach().prependTo("#table_wrapper");
-                //$("#prev").detach().prependTo("#table_wrapper");
-
-
-                //var r = result.split("|"); //separate html and JQuery
-
                 var $r = result.split("|"); //separate html and JQuery
-                $("#table_content tr:last").after($r[0]);
-                jQuery.globalEval($r[1]);
-
+                $("#table_content tr:last").after($r[0]); //append the html result
+                jQuery.globalEval($r[1]); //execute the JQuery script
             }
-
         });
-        //r.resolve();
     });
 });
 
-/*
- * moved to separate files
-$("#timeslots").on('click','.timeslots',function(){
-    $("#timeslots").find(".clicked").toggleClass("clicked");
-    $(this).toggleClass("clicked");
-    $("div#form").show();
-});
-*/
-
+//on current month calendar cell click, change its state to clicked and remove clicked state from other cells,
+//hide the form, make an ajax post call to the timeslots script and update the timeslots table
 $(".calendar").on('click','.data',function(){	//on click toggle background of selected day
-    $("#table_content").find(".clicked").toggleClass("clicked");		//restore default background
+    $("#table_content").find(".clicked").toggleClass("clicked"); //restore default background
     $(this).toggleClass("clicked");		//paint selected day's background
     $("div#form").hide();
     $.ajax({
@@ -145,10 +114,16 @@ $(".calendar").on('click','.data',function(){	//on click toggle background of se
 
 });
 
-
+//On previous month calendar cell click, switch the calendar to previous month and update the timeslots table
+//This is achieved in 2 steps: the calendar is switched to prev month and then the calendar table cell click is triggered
+//The prev month button event trigger can't be used for this as the second ajax call (to retrieve timeslots table) uses
+//the date header which needs to be updated BEFORE the timeslot retrieval call. Furthermore this second ajax call tends
+//to fire before the new date header is updated. This can only be achieved by triggering
+//the calendar cell click AFTER the date header is updated, in the success function, hence the code repetition from button event handler.
 $(".calendar").on('click', '.prev_data', function(){
 
-    $("#table_content").find(".clicked").toggleClass("clicked");
+    $("#table_content").find(".clicked").toggleClass("clicked"); //remove clicked state from other cells
+    //set clicked state to this cell, only used as a marker for the second selector in the success function
     $(this).toggleClass("clicked");
    // var r = $.Deferred();
 
@@ -168,12 +143,13 @@ $(".calendar").on('click', '.prev_data', function(){
             button: "prev"
         },
         success: function(result){
-            //$("#date_wrapper").find("#date").text(result);
             $("#date_wrapper").html(result);
-            $("#table_content").find(".clicked").toggleClass("clicked").trigger("click"); //must be called AFTER new date is returned, hence the repetition
-
+            //triggers a click event on the previous month cell
+            //must be called AFTER new date is returned as the date header needs to be updated before the timeslot table update,
+            //hence the repetition of code
+            //also the clicked cell state is disabled before triggering the cell click
+            $("#table_content").find(".clicked").toggleClass("clicked").trigger("click");
         }
-
     });
 
     //get new calendar
@@ -181,31 +157,30 @@ $(".calendar").on('click', '.prev_data', function(){
         type : "POST",
         url : "../calendar.php",
         dataType : "html",
-        //async: false,
         data : {
             date: $("#date_wrapper").find("#date").text(),
             button : "prev"
         },
 
         success : function(result) {//update table
-
-
             var $r = result.split("|"); //separate html and JQuery
             $("#table_content tr:first").before($r[0]);
             jQuery.globalEval($r[1]);
-
         }
-
-
     });
-
-
 });
 
+//On next month calendar cell click, switch the calendar to next month and update the timeslots table
+//This is achieved in 2 steps: the calendar is switched to next month and then the calendar table cell click is triggered
+//The next month button event trigger can't be used for this as the second ajax call (to retrieve timeslots table) uses
+//the date header which needs to be updated BEFORE the timeslot retrieval call. Furthermore this second ajax call tends
+//to fire before the new date header is updated. This can only be achieved by triggering
+//the calendar cell click AFTER the date header is updated, in the success function, hence the code repetition from button event handler.
 $(".calendar").on('click', '.next_data', function(){
-    $("#table_content").find(".clicked").toggleClass("clicked");
+    $("#table_content").find(".clicked").toggleClass("clicked"); //remove clicked state from other cells
+    //set clicked state to this cell, only used as a marker for the second selector in the success function
     $(this).toggleClass("clicked");
-    //$("#table_header").find("#next").trigger("click");
+
 
     $("#table_content").find('.data').addClass('prev_data').removeClass('data');
     $("#table_content").find('.next_data').addClass('data').removeClass('next_data');
@@ -215,18 +190,17 @@ $(".calendar").on('click', '.next_data', function(){
         type : "POST",
         url : "../calendarHeader.php",
         dataType : "html",
-        //async: false,
         data : {
             date: $("#date_wrapper").find("#date").text(),
             button: "next"
         },
         success: function(result){
-            //$("#date_wrapper").find("#date").text(result);
             $("#date_wrapper").html(result);
+            //triggers a click event on the previous month cell
+            //must be called AFTER new date is returned as the date header needs to be updated before the timeslot table update,
+            //hence the repetition of code
+            //also the clicked cell state is disabled before triggering the cell click
             $("#table_content").find(".clicked").toggleClass("clicked").trigger("click");
-            // $(".clicked").trigger("click");
-
-
         }
     });
 
@@ -234,24 +208,20 @@ $(".calendar").on('click', '.next_data', function(){
         type : "POST",
         url : '../calendar.php',
         dataType : "html",
-        //async: false,
         data : {
             date: $("#date_wrapper").find("#date").text(),
             button : "next"
         },
 
         success : function(result) {//update table
-
             var $r = result.split("|"); //separate html and JQuery
             $("#table_content tr:last").after($r[0]);
             jQuery.globalEval($r[1]);
-
         }
-
     });
-
 });
 
+//on week number click set the clicked state to the whole week and update the timeslots table with timeslots for the whole week
 $(".calendar").on('click', '.weekNum', function(){
     $("#table_content").find(".clicked").toggleClass("clicked");
     $(this).toggleClass("clicked");
@@ -265,7 +235,6 @@ $(".calendar").on('click', '.weekNum', function(){
         data:{
             week: $(this).text(),
             date: $("#date_wrapper").find("#date").text()
-
         },
         success: function(result){
             $("#timeslots .slots").html(result);
@@ -273,6 +242,7 @@ $(".calendar").on('click', '.weekNum', function(){
     });
 });
 
+//set clicked state to today's calendar cell and retrieve timeslots
 $("#today").on('onLoad',function(){
     $(this).toggleClass("clicked");		//paint selected day's background
     $("div#form").hide();
@@ -290,23 +260,4 @@ $("#today").on('onLoad',function(){
     });
 });
 
-
-//$("#table_content").animate({
-/*$(".calendar").animate({
-    top: "-=100px"
-},500);*/
-
 $("#today").trigger("onLoad"); //when the page ends loading today's day is selected automatically
-
-
-
-
-/*
-$("#timeslots").on("click", ".delete", function(evt){
-    //console.log("delete clicked");
-    console.log($(this).parent().siblings().find(".id").text());
-
-});
-*/
-
-

@@ -1,9 +1,13 @@
-//specific only to staff's page
+//Author: Daniel Kasprowicz
+//specific to staff page
+
+//on calendar cell click put the date stamp in the date input field
 $(".calendar").on('click','.data',function() {
     $(".insert input[name='date']").val($("#date_wrapper").find("#date").attr("value")+'-'+$(this).html());
 
 });
 
+//highlight the clicked timeslot
 $("#timeslots").on('click','.timeslots',function(){
     $("#timeslots").find(".clicked").toggleClass("clicked");
     $(this).toggleClass("clicked");
@@ -14,18 +18,18 @@ $("#timeslots").on('click','.timeslots',function(){
 
 });
 
+//highlight the day of the timeslot in the calendar on form submission,
+//process the form, append the response in the response div (doesn't return anything on success, only if error occurs),
+//trigger the click event on the calendar cell to refresh the timeslots table
 $("form[name='form_staff']").on("submit", function(event){
     event.preventDefault();
-    //console.log( $( this ).serialize() );
     var d = $(this).serialize();
     var date = $(".insert input[name='date']").val(); //select date from the input field
     var day = date.substr(date.lastIndexOf('-')+1); //select day from the date
-
+    //set the cell variable to the calendar cell that contains the day from the date input field
     var cell = $("#table_content .data").filter(function(){return $(this).text() === day});
-    cell.addClass("available");
+    cell.addClass("available"); //add the 'available' class to that cell
 
-
-    //console.log();
 
     $.ajax({
         type: "post",
@@ -42,6 +46,12 @@ $("form[name='form_staff']").on("submit", function(event){
 
 });
 
+//delete buttons event handler
+$(".slots").on("click", ".delete", function(){
+    del(this.id);
+});
+
+//makes an ajax post call to the delete.php script which deletes the timeslot
 function del(id){
     $.ajax({
         type: "post",
@@ -53,10 +63,7 @@ function del(id){
 
         success: function(result){
             $("#table_content").find(".clicked").first().trigger("click");
-
-
         }
-
     });
-
 }
+

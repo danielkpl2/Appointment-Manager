@@ -1,4 +1,5 @@
 <?php
+//author: Daniel Kasprowicz
 
 include_once '../includes/db_connect.php';
 include_once '../includes/functions.php';
@@ -92,10 +93,7 @@ sec_session_start();
 									<label class="radio-inline"><input type="radio" name="has_account" id="no" value="0" checked>New user</label>
 									<label class="radio-inline"><input type="radio" name="has_account" id="yes" value="1">Existing user</label>
 								</div>
-								
-								
-								
-								
+
 								<!-- Text input-->
 								<div class="form-group show">
 								  <label class="col-md-4 control-label" for="name">Name</label>  
@@ -184,11 +182,8 @@ sec_session_start();
 			</div>
 		</div>
 
-
 		<script src="../js/script.js"></script> <!--common to both staff and student pages-->
-		<script src="../js/student.js"></script> <!--specific only to student's page -->
-		<!--<script>document.form.reset();</script>-->
-
+		<script src="../js/student.js"></script> <!--specific only to student page -->
 	</body>
 
 </html>

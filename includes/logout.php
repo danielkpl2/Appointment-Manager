@@ -1,4 +1,6 @@
 <?php
+//source: http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL
+//modified by Daniel Kasprowicz
 include_once 'functions.php';
 sec_session_start();
 

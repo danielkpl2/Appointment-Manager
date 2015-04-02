@@ -1,5 +1,6 @@
 <?php
-require "../functions.php";
+//author: Daniel Kasprowicz
+include_once '../includes/db_connect.php';
 
 //if incorrect timezone is set in php.ini change the line date.timezone to "Europe/London" or use the command below
 //date_default_timezone_set("Europe/London"); //has to be run every time if timezone in php.ini is different
@@ -36,12 +37,9 @@ else{
 	}else exit;
 
 
-	$conn = db_connect();
-
 	$sql = "SELECT * FROM timeslot WHERE studentid IS NULL AND (date BETWEEN '$first_day' AND '$last_day') AND date >='$ymd' AND NOT (date = '$ymd' AND starttime < '$time') ORDER BY date ASC, starttime ASC";
-	//echo $sql;
 
-	$result = execute_query($conn, $sql);
+	$result = $mysqli->query($sql);
 
 	if ($result->num_rows > 0) {
 		echo "<table class='table'><tr><th>Date</th><th>Start Time</th><th>End Time</th><th>Duration</th></tr>";
@@ -55,9 +53,7 @@ else{
 		if (isset($_POST["day"])) echo "<p>No appointments available on $day-$month-$year. Select a day from the calendar to the right -></p>";
 		else if(isset($_POST["week"])) echo "<p>No appointments available between $first_day and $last_day. Select a day from the calendar to the right -></p>";
 	}
-	close_connection($conn);
-
-
+	$mysqli->close();
 }
 
 	

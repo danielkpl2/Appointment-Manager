@@ -1,3 +1,6 @@
+//source: http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL
+//modified by Daniel Kasprowicz
+
 function formhash(form, password) {
     // Create a new element input, this will be our hashed password field. 
     var p = document.createElement("input");

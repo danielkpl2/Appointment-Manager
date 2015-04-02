@@ -1,4 +1,5 @@
 <?php
+//author: Daniel Kasprowicz
 
 date_default_timezone_set("Europe/London");
 $date = "";
@@ -19,8 +20,6 @@ if(isset($_POST["date"]) && isset($_POST["button"])){
     $year = date('Y', $date);
 
 }
-
-//echo date("F", $date) . " " . date("Y", $date);
 
 echo "<span id ='date' value='$year-$month'>$monthTitle $year</span>";
 

@@ -1,4 +1,6 @@
 <?php
+//source: http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL
+//modified by Daniel Kasprowicz
 include_once 'psl-config.php';
 
 function sec_session_start() {
@@ -222,4 +224,11 @@ function esc_url($url) {
     } else {
         return $url;
     }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }

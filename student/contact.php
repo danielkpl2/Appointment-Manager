@@ -14,8 +14,6 @@
 		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
 		<script src="../js/jquery.min.js"></script>
 
-		
-
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -36,9 +34,6 @@
 					<span class="navbar-brand">Student appointment booking page for Helen Purchase</span>
 
 				</div>
-
-
-
 			</div>
 		</nav>
 
@@ -60,9 +55,8 @@
 					</ul>
 
 				</div>
-				<!--<div class="col-md-9">-->
 					
-					<div class="col-md-6">
+				<div class="col-md-6">
 					<h4>Contact Information:</h4>
 						<p>Dr. Helen C. Purchase <br>
 							Senior Lecturer<br>
@@ -72,17 +66,9 @@
 							Email: helen.purchase@glasgow.ac.uk<br>
 							Telephone:  +44-141-330-4484<br>
 							Fax: +44-141-330-3103
-
 						</p>
-
-
-					</div>
-					</div>
-					<div class="col-md-3">
-						
-
-					</div>
-
+				</div>
+				<div class="col-md-3">
 				</div>
 			</div>
 		</div>
@@ -90,5 +76,4 @@
 		<script src="../js/script.js"></script>
 
 	</body>
-
 </html>

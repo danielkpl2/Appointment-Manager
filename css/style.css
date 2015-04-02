@@ -201,6 +201,20 @@ th{
 	text-align: center;
 }
 
+.delete{
+	color: rgba(255, 0, 0, 0.61);
+}
+
+.insert button {
+	color: #4FBD73;
+
+}
+
+/*remove extra padding from the td elements that contain 'delete' buttons*/
+.timeslots>td:nth-child(2){
+	padding: 0px;
+}
+
 body{
 	padding-top: 50px;
 
