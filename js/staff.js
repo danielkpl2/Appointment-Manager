@@ -8,8 +8,7 @@ $(".calendar").on('click','.data',function() {
 });
 
 //highlight the clicked timeslot
-$("#timeslots").on('click','.timeslots',function(){
-    $("#timeslots").find(".clicked").toggleClass("clicked");
+$(".slots").on('click','.booked',function(){
     $(this).toggleClass("clicked");
 
     //shows and hides the note on timeslot click

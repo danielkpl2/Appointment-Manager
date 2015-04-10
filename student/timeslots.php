@@ -45,7 +45,7 @@ else{
 		echo "<table class='table'><tr><th>Date</th><th>Start Time</th><th>End Time</th><th>Duration</th></tr>";
 		while($row = $result->fetch_assoc()) {
 			$duration = date("i",strtotime($row["endtime"]) - strtotime($row["starttime"]));
-			echo "<tr class='timeslots'><td class='id hide'>$row[id]</td><td class='date'>$row[date]</td><td class='starttime'>$row[starttime]</td><td class='endtime'>$row[endtime]</td><td>$duration min</td></tr>";
+			echo "<tr class='timeslots'><td class='id hide'>$row[id]</td><td class='date' style='width: 100px;'>$row[date]</td><td class='starttime'>$row[starttime]</td><td class='endtime'>$row[endtime]</td><td>$duration min</td></tr>";
 		}
 		echo "</table>";
 	}

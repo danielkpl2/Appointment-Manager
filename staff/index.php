@@ -87,13 +87,13 @@ if(!login_check($mysqli)){
             <h4>Available appointment times for Helen Purchase</h4>
             <div id="timeslots">
 
-                <table class='table'><tr><th style="width: 30px"></th><th>Date</th><th>Start</th><th>End</th><th>Duration</th><th>Purpose</th><th>Student</th></tr></table>
+                <table class='table'><tr><th style="width: 30px"></th><th style="width: 100px;">Date</th><th>Start</th><th>End</th><th>Duration</th><th>Purpose</th><th>Student</th></tr></table>
                 <table class="table slots"></table>
                 <form name="form_staff">
                 <table class="table insert">
 
                         <tr><td style="width: 30px"><button  name="submit" class='btn btn-xs' type="submit"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></button></td>
-                        <td><input type="text" class="form-control" name="date"/></td>
+                        <td style="width: 100px;"><input type="text" class="form-control" name="date"/></td>
                         <td><input type="text" class="form-control" name="start"/></td><td ><input type="text" class="form-control" name="end"/></td>
                         <td></td>
                         <td></td>

@@ -46,7 +46,11 @@ else{
 		while($row = $result->fetch_assoc()) {
 			$duration = date("i",strtotime($row["endtime"]) - strtotime($row["starttime"]));
 			$id = $row['id'];
-			echo "<tr class='timeslots'><td class='id hide'>$row[id]</td><td style='width: 30px'><button id=\"$id\" class=\"btn btn-xs delete\" role=\"button\"><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></button></td><td class='date'>$row[date]</td><td class='starttime'>$row[starttime]</td><td class='endtime'>$row[endtime]</td><td>$duration min</td>";
+			if($row["forename"] != null && $row["surname"] != null){
+				echo "<tr class='timeslots booked'>";
+			}else echo "<tr class='timeslots unbooked'>";
+
+			echo "<td class='id hide'>$row[id]</td><td style='width: 30px'><button id=\"$id\" class=\"btn btn-xs delete\" role=\"button\"><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></button></td><td class='date' style='width: 100px;'>$row[date]</td><td class='starttime'>$row[starttime]</td><td class='endtime'>$row[endtime]</td><td>$duration min</td>";
 			echo "<td>$row[for_name]</td><td>$row[forename] $row[surname]</td></tr>";
 			if($row["comment"] != null){
 				echo "<tr class='note hide'><td colspan='2' class='note-title'>Note: </td><td colspan='5' class='note-content'>$row[comment]</td></tr>";
