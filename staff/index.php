@@ -73,7 +73,7 @@ if(!login_check($mysqli)){
                     <a class="selected" href="#">Appointments</a>
                 </li>
                 <li>
-                    <a href="#">My appointments</a>
+                    <a href="configure.php">Configure</a>
                 </li>
                 <li>
                     <a href="contact.php">Contact information</a>

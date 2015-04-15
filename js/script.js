@@ -14,82 +14,81 @@ $("input[name='has_account']").change(function(){
     });
 });
 
-$(function() {	//button event handlers
-    $("#table_header").on('click', "#prev", function() {
+//button event handlers
+$("#table_header").on('click', "#prev", function() {
 
-        //change the current month day cells to next month date cells
-        $("#table_content").find('.data').addClass('next_data').removeClass('data');
-        //change the previous month date cells to current month date cells
-        $("#table_content").find('.prev_data').addClass('data').removeClass('prev_data');
+    //change the current month day cells to next month date cells
+    $("#table_content").find('.data').addClass('next_data').removeClass('data');
+    //change the previous month date cells to current month date cells
+    $("#table_content").find('.prev_data').addClass('data').removeClass('prev_data');
 
-        //change calendar title
-        $.ajax({
-            type : "POST",
-            url : "../calendarHeader.php",
-            dataType : "html",
-            data : {
-                date: $("#date_wrapper").find("#date").text(),
-                button: "prev"
-            },
-            success: function(result){
-                $("#date_wrapper").html(result); //update the date header
-            }
-        });
-
-        //get new calendar
-        $.ajax({
-            type : "POST",
-            url : "../calendar.php",
-            dataType : "html",
-            data : {
-                date: $("#date_wrapper").find("#date").text(),
-                button : "prev"
-            },
-
-            success : function(result) {//update table
-                var $r = result.split("|"); //separate html and JQuery
-                $("#table_content tr:first").before($r[0]); //append the html result
-                jQuery.globalEval($r[1]); //execute the JQuery script
-            }
-        });
+    //change calendar title
+    $.ajax({
+        type : "POST",
+        url : "../calendarHeader.php",
+        dataType : "html",
+        data : {
+            date: $("#date_wrapper").find("#date").text(),
+            button: "prev"
+        },
+        success: function(result){
+            $("#date_wrapper").html(result); //update the date header
+        }
     });
 
-    $("#table_header").on('click', "#next", function() {
+    //get new calendar
+    $.ajax({
+        type : "POST",
+        url : "../calendar.php",
+        dataType : "html",
+        data : {
+            date: $("#date_wrapper").find("#date").text(),
+            button : "prev"
+        },
 
-        //change the current month day cells to previous month date cells
-        $("#table_content").find('.data').addClass('prev_data').removeClass('data');
-        //change the next month date cells to current month date cells
-        $("#table_content").find('.next_data').addClass('data').removeClass('next_data');
+        success : function(result) {//update table
+            var $r = result.split("|"); //separate html and JQuery
+            $("#table_content tr:first").before($r[0]); //append the html result
+            jQuery.globalEval($r[1]); //execute the JQuery script
+        }
+    });
+});
 
-        //change calendar title
-        $.ajax({
-            type : "POST",
-            url : "../calendarHeader.php",
-            dataType : "html",
-            data : {
-                date: $("#date_wrapper").find("#date").text(),
-                button: "next"
-            },
-            success: function(result){
-                $("#date_wrapper").html(result); //update the date header
-            }
-        });
+$("#table_header").on('click', "#next", function() {
 
-        $.ajax({
-            type : "POST",
-            url : '../calendar.php',
-            dataType : "html",
-            data : {
-                date: $("#date_wrapper").find("#date").text(),
-                button : "next"
-            },
+    //change the current month day cells to previous month date cells
+    $("#table_content").find('.data').addClass('prev_data').removeClass('data');
+    //change the next month date cells to current month date cells
+    $("#table_content").find('.next_data').addClass('data').removeClass('next_data');
 
-            success : function(result) {//update table
-                var $r = result.split("|"); //separate html and JQuery
-                $("#table_content tr:last").after($r[0]); //append the html result
-                jQuery.globalEval($r[1]); //execute the JQuery script
-            }
-        });
+    //change calendar title
+    $.ajax({
+        type : "POST",
+        url : "../calendarHeader.php",
+        dataType : "html",
+        data : {
+            date: $("#date_wrapper").find("#date").text(),
+            button: "next"
+        },
+        success: function(result){
+            $("#date_wrapper").html(result); //update the date header
+        }
+    });
+
+    $.ajax({
+        type : "POST",
+        url : '../calendar.php',
+        dataType : "html",
+        data : {
+            date: $("#date_wrapper").find("#date").text(),
+            button : "next"
+        },
+
+        success : function(result) {//update table
+            var $r = result.split("|"); //separate html and JQuery
+            $("#table_content tr:last").after($r[0]); //append the html result
+            jQuery.globalEval($r[1]); //execute the JQuery script
+        }
     });
 });
 

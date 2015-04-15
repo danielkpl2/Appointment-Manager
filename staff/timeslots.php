@@ -37,8 +37,15 @@ else{
 	}else exit;
 
 
-	$sql = "SELECT timeslot.id, date, starttime, endtime, forename, surname, comment, for_name FROM purpose, timeslot LEFT JOIN student ON timeslot.studentid = student.id" .
- " WHERE ((timeslot.purpose is NULL AND (timeslot.purpose is null AND purpose.for_id is null)) OR timeslot.purpose = purpose.for_id) AND (date BETWEEN '$first_day' AND '$last_day') AND date >='$ymd' AND NOT (date = '$ymd' AND starttime < '$time') ORDER BY date ASC, starttime ASC";
+	//http://stackoverflow.com/questions/14260860/multiple-left-joins-on-multiple-tables-in-one-query
+
+	$sql = "SELECT ts.id, ts.date, ts.starttime, ts.endtime, ts.comment, s.forename, s.surname, p.for_name
+ FROM
+ timeslot as ts LEFT JOIN student as s ON ts.studentid = s.id,
+ timeslot as tp LEFT JOIN purpose as p ON tp.purpose = p.for_id
+ WHERE (ts.id = tp.id)
+ AND (ts.date BETWEEN '$first_day' AND '$last_day')
+ AND ts.date >='$ymd' AND NOT (ts.date = '$ymd' AND ts.starttime < '$time') ORDER BY ts.date ASC, ts.starttime ASC";
 
 	$result = $mysqli->query($sql);
 
