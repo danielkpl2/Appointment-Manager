@@ -52,6 +52,6 @@ if (!empty($error_msg)) {
                                    this.form.password,
                                    this.form.confirmpwd);" />
 </form>
-<p>Return to the <a href="index.php">login page</a>.</p>
+<p>Return to the <a href="staff/">login page</a>.</p>
 </body>
 </html>
