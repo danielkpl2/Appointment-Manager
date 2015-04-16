@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2015 at 07:48 AM
+-- Generation Time: Apr 16, 2015 at 06:32 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `timeslot` (
   `studentid` int(11) DEFAULT NULL,
   `purpose` int(11) DEFAULT NULL,
   `comment` text
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=219 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=245 ;
 
 --
 -- Indexes for dumped tables
@@ -143,7 +143,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 -- AUTO_INCREMENT for table `timeslot`
 --
 ALTER TABLE `timeslot`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=219;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=245;
 --
 -- Constraints for dumped tables
 --

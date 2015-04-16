@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2015 at 11:53 PM
+-- Generation Time: Apr 16, 2015 at 06:32 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -27,8 +27,7 @@ SET time_zone = "+00:00";
 INSERT INTO `purpose` (`staffid`, `for_id`, `for_name`) VALUES
 (2, 1, 'General'),
 (2, 2, 'Advisor'),
-(2, 3, 'Studies'),
-(2, NULL, '');
+(2, 3, 'Studies');
 
 --
 -- Dumping data for table `room`
@@ -59,9 +58,7 @@ INSERT INTO `student` (`id`, `guid`, `forename`, `surname`, `email`, `password`)
 (8, '1234567m', 'Michael', 'Smith', 'mic.smith@gmail.com', 'qwerty'),
 (9, 'waefgf2', 'abc', 'def', 'fdsaf@gdsa.com', 'qwerty'),
 (10, 'fdgsdfg', 'desgerg', 'dsf', 'dsfghdsfh@gmail.com', 'hesher'),
-(11, '1234567f', 'Moist', 'Fanny', 'moist.fanny@hotmail.com', 'qwerty123'),
 (12, '7654364n', 'Patrick', 'Numpty', 'pattyn@gmail.com', 'qwerty123'),
-(13, NULL, 'hherhe', '', 'ghfd@gdsfgfd.com', 'qwfqwfqw'),
 (14, '7459074c', 'Peter', 'Capaldi', 'peter.capaldi@gmail.com', 'qwerty123'),
 (22, '9384058b', 'fsdf', 'fsfsdf', 'a.b@gmail.com', 'qwerty123');
 
@@ -100,61 +97,44 @@ INSERT INTO `timeslot` (`id`, `starttime`, `endtime`, `date`, `staffid`, `studen
 (74, '10:00:00', '10:15:00', '2015-04-22', 2, 5, 1, 'Help'),
 (80, '09:00:00', '09:20:00', '2015-03-20', 2, NULL, NULL, NULL),
 (84, '10:00:00', '10:15:00', '2014-01-01', 2, NULL, NULL, NULL),
-(86, '10:00:00', '10:15:00', '2015-05-02', 2, NULL, NULL, NULL),
 (87, '10:00:00', '10:15:00', '2015-05-05', 2, NULL, NULL, NULL),
 (88, '10:00:00', '10:15:00', '2015-04-27', 2, NULL, NULL, NULL),
 (89, '10:00:00', '10:30:00', '2015-04-02', 2, NULL, NULL, NULL),
-(90, '10:00:00', '10:30:00', '2015-04-09', 2, 4, 3, 'There are two possibilities to include graphics in your document. Either create them with some special code, a topic which will be discussed in the Creating Graphics part, (see Introducing Procedural Graphics) or import productions from third party tools, which is what we will be discussing here.\r\n\r\nStrictly speaking, LaTeX cannot manage pictures directly: in order to introduce graphics within documents, LaTeX just creates a box with the same size as the image you want to include and embeds the picture, without any other processing. This means you will have to take care that the images you want to include are in the right format to be included. This is not such a hard task because LaTeX supports the most common picture formats around.\r\n\r\nThere are two possibilities to include graphics in your document. Either create them with some special code, a topic which will be discussed in the Creating Graphics part, (see Introducing Procedural Graphics) or import productions from third party tools, which is what we will be discussing here.\r\n\r\nStrictly speaking, LaTeX cannot manage pictures directly: in order to introduce graphics within documents, LaTeX just creates a box with the same size as the image you want to include and embeds the picture, without any other processing. This means you will have to take care that the images you want to include are in the right format to be included. This is not such a hard task because LaTeX supports the most common picture formats around.'),
 (92, '10:00:00', '10:15:00', '2015-03-10', 2, NULL, NULL, NULL),
 (96, '10:00:00', '10:15:00', '2015-05-12', 2, 14, 1, 'Many, if not all, of you have had to deal with creating a secure site login at some point in time. Although there are numerous articles written on the subject it is painstakingly difficult to find useful information from a single source. For this reason I will be discussing various techniques I have used or come across in the past for increasing session security to hinder both session hijacking and brute force password cracking using Rainbow tables or online tools such as GData. I use the word hinder due to the fact no foolproof methods exist for preventing session hijacking or brute force cracking, merely increasing degrees of difficulty. Choose a method wisely based on your sites current or anticipated traffic, security concerns, and intended site usage. The following examples have been coded using PHP and MySQL. I more than willingly accept comments, suggestions, critiques, and code samples from readers like you as they benefit the community on the whole.'),
 (97, '10:00:00', '10:15:00', '2015-05-19', 2, NULL, NULL, NULL),
-(99, '12:00:00', '12:30:00', '2015-05-07', 2, NULL, NULL, NULL),
 (101, '12:00:00', '12:30:00', '2015-05-14', 2, NULL, NULL, NULL),
 (103, '10:00:00', '10:15:00', '2015-06-10', 2, NULL, NULL, NULL),
 (104, '10:00:00', '10:15:00', '2015-06-17', 2, NULL, NULL, NULL),
 (114, '10:00:00', '10:15:00', '2015-03-24', 2, NULL, NULL, NULL),
 (115, '10:00:00', '10:15:00', '2015-03-25', 2, NULL, NULL, NULL),
-(118, '10:00:00', '10:15:00', '2015-04-13', 2, NULL, NULL, NULL),
+(118, '10:00:00', '10:15:00', '2015-04-13', 2, 4, 2, 'Need help with studies.'),
 (120, '10:00:00', '10:15:00', '2015-06-12', 2, NULL, NULL, NULL),
 (121, '10:00:00', '10:15:00', '2015-06-19', 2, NULL, NULL, NULL),
 (124, '10:00:00', '10:15:00', '2015-06-20', 2, NULL, NULL, NULL),
 (126, '10:00:00', '00:00:00', '2015-03-11', 2, NULL, NULL, NULL),
-(128, '10:15:00', '10:30:00', '2015-03-29', 2, 11, 2, 'Advise me'),
+(128, '10:15:00', '10:30:00', '2015-03-29', 2, NULL, 2, 'Advise me'),
 (129, '10:00:00', '10:15:00', '2015-03-30', 2, NULL, NULL, NULL),
 (134, '10:00:00', '10:15:00', '2015-05-09', 2, NULL, NULL, NULL),
 (137, '07:00:00', '07:10:00', '2015-04-07', 2, NULL, NULL, NULL),
 (138, '11:00:00', '11:15:00', '2015-04-02', 2, 5, 2, 'hans note'),
-(139, '10:00:00', '10:15:00', '2015-04-24', 2, NULL, NULL, NULL),
+(139, '10:00:00', '10:15:00', '2015-04-24', 2, 3, 1, 'Need to talk about various things.'),
 (140, '11:00:00', '11:30:00', '2015-04-09', 2, 5, 3, 'note note'),
 (142, '11:00:00', '11:20:00', '2015-06-30', 2, NULL, NULL, NULL),
 (143, '11:00:00', '11:20:00', '2015-07-02', 2, NULL, NULL, NULL),
 (144, '11:00:00', '11:20:00', '2015-07-04', 2, NULL, NULL, NULL),
 (145, '11:00:00', '11:20:00', '2015-07-06', 2, NULL, NULL, NULL),
-(146, '11:00:00', '11:20:00', '2015-07-08', 2, NULL, NULL, NULL),
 (147, '11:00:00', '11:20:00', '2015-07-10', 2, NULL, NULL, NULL),
-(148, '11:00:00', '11:20:00', '2015-07-12', 2, NULL, NULL, NULL),
 (149, '11:00:00', '11:20:00', '2015-07-14', 2, NULL, NULL, NULL),
-(150, '11:00:00', '11:20:00', '2015-07-28', 2, NULL, NULL, NULL),
-(151, '11:00:00', '11:20:00', '2015-07-16', 2, NULL, NULL, NULL),
 (152, '11:00:00', '11:20:00', '2015-07-30', 2, NULL, NULL, NULL),
 (153, '11:00:00', '11:20:00', '2015-07-18', 2, NULL, NULL, NULL),
 (154, '11:00:00', '11:20:00', '2015-08-01', 2, NULL, NULL, NULL),
 (155, '11:00:00', '11:20:00', '2015-07-20', 2, NULL, NULL, NULL),
 (156, '11:00:00', '11:20:00', '2015-07-22', 2, NULL, NULL, NULL),
-(157, '11:00:00', '11:20:00', '2015-07-24', 2, NULL, NULL, NULL),
 (166, '11:00:00', '11:20:00', '2015-07-26', 2, NULL, NULL, NULL),
 (167, '11:00:00', '11:20:00', '2015-08-03', 2, NULL, NULL, NULL),
-(168, '11:00:00', '11:20:00', '2015-08-05', 2, NULL, NULL, NULL),
 (169, '11:00:00', '11:20:00', '2015-08-07', 2, NULL, NULL, NULL),
 (170, '11:00:00', '11:20:00', '2015-08-09', 2, NULL, NULL, NULL),
-(193, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
-(194, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
-(195, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
-(196, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
-(197, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
-(198, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
-(199, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
-(200, '00:00:00', '00:00:00', '0000-00-00', 2, NULL, NULL, NULL),
 (202, '10:00:00', '10:30:00', '2015-06-22', 2, NULL, NULL, NULL),
 (203, '10:00:00', '10:30:00', '2015-06-23', 2, NULL, NULL, NULL),
 (205, '10:00:00', '10:30:00', '2015-06-25', 2, NULL, NULL, NULL),
@@ -164,14 +144,30 @@ INSERT INTO `timeslot` (`id`, `starttime`, `endtime`, `date`, `staffid`, `studen
 (210, '11:00:00', '11:30:00', '2015-06-22', 2, NULL, NULL, NULL),
 (211, '11:00:00', '11:30:00', '2015-06-23', 2, NULL, NULL, NULL),
 (212, '11:00:00', '11:30:00', '2015-06-24', 2, NULL, NULL, NULL),
-(213, '11:00:00', '11:30:00', '2015-06-25', 2, NULL, NULL, NULL),
 (214, '11:00:00', '11:30:00', '2015-06-26', 2, NULL, NULL, NULL),
 (215, '11:00:00', '11:30:00', '2015-06-27', 2, NULL, NULL, NULL),
 (216, '11:00:00', '11:30:00', '2015-06-28', 2, NULL, NULL, NULL),
 (217, '08:00:00', '08:20:00', '2015-04-07', 2, 22, 1, 'note '),
-(218, '10:00:00', '10:30:00', '2015-04-16', 2, NULL, NULL, NULL),
+(218, '10:00:00', '10:30:00', '2015-04-16', 2, 5, 1, 'Send help'),
 (219, '10:00:00', '10:15:00', '2015-04-03', 2, NULL, NULL, NULL),
-(220, '10:15:00', '10:30:00', '2015-04-03', 2, NULL, NULL, NULL);
+(220, '10:15:00', '10:30:00', '2015-04-03', 2, NULL, NULL, NULL),
+(221, '10:45:00', '11:00:00', '2015-06-25', 2, NULL, NULL, NULL),
+(222, '10:45:00', '11:00:00', '2015-06-15', 2, NULL, NULL, NULL),
+(230, '10:00:00', '10:15:00', '2015-04-15', 2, NULL, NULL, NULL),
+(231, '14:00:00', '14:45:00', '2015-04-17', 2, NULL, NULL, NULL),
+(232, '11:00:00', '11:20:00', '2015-07-08', 2, NULL, NULL, NULL),
+(233, '11:00:00', '11:20:00', '2015-07-16', 2, NULL, NULL, NULL),
+(234, '11:00:00', '11:20:00', '2015-07-24', 2, NULL, NULL, NULL),
+(235, '11:00:00', '11:20:00', '2015-07-28', 2, NULL, NULL, NULL),
+(236, '11:00:00', '11:20:00', '2015-08-05', 2, NULL, NULL, NULL),
+(237, '10:00:00', '10:30:00', '2015-04-13', 2, NULL, NULL, NULL),
+(238, '17:00:00', '17:15:00', '2015-04-13', 2, NULL, NULL, NULL),
+(239, '16:26:00', '16:30:00', '2015-04-13', 2, NULL, NULL, NULL),
+(240, '16:27:00', '16:30:00', '2015-04-13', 2, NULL, NULL, NULL),
+(241, '18:00:00', '18:30:00', '2015-04-13', 2, NULL, NULL, NULL),
+(242, '10:00:00', '10:15:00', '2015-04-20', 2, NULL, NULL, NULL),
+(243, '14:20:00', '14:40:00', '2015-04-29', 2, NULL, NULL, NULL),
+(244, '11:00:00', '11:20:00', '2015-07-12', 2, NULL, NULL, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

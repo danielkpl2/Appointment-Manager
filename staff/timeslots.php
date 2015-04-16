@@ -39,7 +39,7 @@ else{
 
 	//http://stackoverflow.com/questions/14260860/multiple-left-joins-on-multiple-tables-in-one-query
 
-	$sql = "SELECT ts.id, ts.date, ts.starttime, ts.endtime, ts.comment, s.forename, s.surname, p.for_name
+	$sql = "SELECT ts.id, ts.date, DATE_FORMAT(ts.starttime, '%k:%i') as starttime, DATE_FORMAT(ts.endtime, '%k:%i') as endtime, ts.comment, s.forename, s.surname, p.for_name
  FROM
  timeslot as ts LEFT JOIN student as s ON ts.studentid = s.id,
  timeslot as tp LEFT JOIN purpose as p ON tp.purpose = p.for_id

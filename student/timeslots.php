@@ -37,7 +37,7 @@ else{
 	}else exit;
 
 
-	$sql = "SELECT * FROM timeslot WHERE studentid IS NULL AND (date BETWEEN '$first_day' AND '$last_day') AND date >='$ymd' AND NOT (date = '$ymd' AND starttime < '$time') ORDER BY date ASC, starttime ASC";
+	$sql = "SELECT id, studentid, date, DATE_FORMAT(starttime, '%k:%i') as starttime, DATE_FORMAT(endtime, '%k:%i') as endtime FROM timeslot WHERE studentid IS NULL AND (date BETWEEN '$first_day' AND '$last_day') AND date >='$ymd' AND NOT (date = '$ymd' AND starttime < '$time') ORDER BY date ASC, starttime ASC";
 
 	$result = $mysqli->query($sql);
 
